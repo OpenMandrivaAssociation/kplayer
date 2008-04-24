@@ -1,13 +1,11 @@
-%define oname kplayer
-
 Summary:	MPlayer frontend for KDE
-Name:		kde4-%{oname}
+Name:		kplayer
 Version:	0.7
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
-Source:	        http://prdownloads.sourceforge.net/%{oname}/%{oname}-%{version}.tar.bz2	
+Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2	
 BuildRequires:	kdelibs4-devel 
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -36,7 +34,7 @@ Finnish, French, German, Hungarian, Italian, Polish, Russian,
 Simplified Chinese and Spanish. 
 
 %prep
-%setup -q -n %oname-%version
+%setup -q -n %name-%version
 
 %build
 %cmake_kde4
