@@ -9,6 +9,8 @@ Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.ta
 BuildRequires:	kdelibs4-devel 
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+Obsoletes:      kde4-%name <= 0.7
+Provides:       kde4-%name = %version
 
 %description
 KPlayer is a KDE media player based on MPlayer. With KPlayer 
