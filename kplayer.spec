@@ -39,14 +39,18 @@ Simplified Chinese and Spanish.
 %setup -q -n %name-%version
 
 %build
-%cmake_kde4
-make
+%setup_compile_flags
+cmake . \
+	-DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+    %if "%{_lib}" != "lib"
+        -DLIB_SUFFIX=64
+    %endif
+
+%make
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-cd build
 %makeinstall_std
-cd ..
 
 %find_lang %{name}
 
