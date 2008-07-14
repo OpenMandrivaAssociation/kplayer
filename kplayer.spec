@@ -1,7 +1,7 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
 Version:	0.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
@@ -83,7 +83,7 @@ cd -
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%_kde_bindir/*
+%attr(0755,root,root) %_kde_bindir/*
 %_kde_appsdir/%name
 %_kde_appsdir/konqueror/servicemenus/*.desktop
 %_kde_iconsdir/*/*/*/*
