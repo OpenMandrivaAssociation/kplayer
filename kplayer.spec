@@ -7,6 +7,7 @@ Group:		Video
 Url:		http://kplayer.sourceforge.net/
 Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		kplayer-0.7-linkage.patch
+Patch1:		kplayer-0.7-docdir.patch
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -37,6 +38,7 @@ Simplified Chinese and Spanish.
 %prep
 %setup -q -n %name-%version
 %patch0 -p0 -b .linkage
+%patch1 -p0 -b .doc
 
 %build
 %setup_compile_flags
@@ -54,15 +56,6 @@ cmake . \
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %makeinstall_std
-
-cd %buildroot%_kde_datadir/doc/HTML
-for i in *
-do 
-	mkdir $i/%name
-	mv `find $i -type f` `find $i -type l` $i/%name/
-done
-cd -
-
 
 %find_lang %{name} --with-html
 
