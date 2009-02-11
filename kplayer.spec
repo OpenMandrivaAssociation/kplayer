@@ -8,6 +8,7 @@ Url:		http://kplayer.sourceforge.net/
 Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		kplayer-0.7-linkage.patch
 Patch1:		kplayer-0.7-docdir.patch
+Patch2:		kplayer-0.7-out-of-source-build.patch
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -39,23 +40,16 @@ Simplified Chinese and Spanish.
 %setup -q -n %name-%version
 %patch0 -p0 -b .linkage
 %patch1 -p0 -b .doc
+%patch2 -p0 -b .build
 
 %build
-%setup_compile_flags
-cmake . \
-	-DCMAKE_INSTALL_PREFIX:PATH=%{_kde_prefix} \
-	-DKDE_DISTRIBUTION_TEXT="Mandriva Linux release 2009.0 (Cooker) for x86_64" \
-	-DKDE4_DATA_DIR=%{_kde_appsdir} \
-    %if "%{_lib}" != "lib"
-        -DLIB_SUFFIX=64
-    %endif
-
+%cmake_kde4
 %make
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-%makeinstall_std
+%makeinstall_std -C build
 
 %find_lang %{name} --with-html
 
