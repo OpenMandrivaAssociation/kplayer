@@ -1,7 +1,7 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
 Version:	0.7
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
@@ -47,28 +47,23 @@ Simplified Chinese and Spanish.
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std -C build
 
+# fix .desktop file
+desktop-file-install \
+	--vendor="" \
+	--remove-key="Encoding" \
+	--remove-mime-type="uri/mms;uri/mmst;uri/mmsu;uri/pnm;uri/rtsp;uri/rtspt;uri/rtspu" \
+	--dir %{buildroot}%{_kde_applicationsdir} %{buildroot}%{_kde_applicationsdir}/%{name}.desktop
+
+sed -i 's,kplayer.png,kplayer,g' %{buildroot}%{_kde_applicationsdir}/%{name}.desktop
+
 %find_lang %{name} --with-html
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_desktop_database}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_desktop_database}
-%clean_icon_cache hicolor
-%endif
-
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
