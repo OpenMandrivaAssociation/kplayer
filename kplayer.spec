@@ -1,7 +1,7 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
 Version:	0.7
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
@@ -9,6 +9,7 @@ Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.ta
 Patch0:		kplayer-0.7-linkage.patch
 Patch1:		kplayer-0.7-docdir.patch
 Patch2:		kplayer-0.7-out-of-source-build.patch
+Patch3:     kplayer-0.7-t899778-fix-crash-on-exit.patch
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -41,6 +42,7 @@ Simplified Chinese and Spanish.
 %patch0 -p0 -b .linkage
 %patch1 -p0 -b .doc
 %patch2 -p0 -b .build
+%patch3 -p1
 
 %build
 %cmake_kde4
