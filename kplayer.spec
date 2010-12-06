@@ -1,7 +1,7 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
 Version:	0.7
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
