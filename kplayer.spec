@@ -1,15 +1,11 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
-Version:	0.7
-Release:	%mkrel 7
+Version:	0.7.1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
-Source:	        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-Patch0:		kplayer-0.7-linkage.patch
-Patch1:		kplayer-0.7-docdir.patch
-Patch2:		kplayer-0.7-out-of-source-build.patch
-Patch3:     kplayer-0.7-t899778-fix-crash-on-exit.patch
+Source:		http://fr2.rpmfind.net/linux/KDE/stable/%name/%version/src/%name-%version.tar.bz2
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -39,10 +35,6 @@ Simplified Chinese and Spanish.
 
 %prep
 %setup -q -n %name-%version
-%patch0 -p0 -b .linkage
-%patch1 -p0 -b .doc
-%patch2 -p0 -b .build
-%patch3 -p1
 
 %build
 %cmake_kde4
@@ -71,8 +63,8 @@ rm -rf %{buildroot}
 %defattr(644,root,root,755)
 %attr(0755,root,root) %_kde_bindir/*
 %_kde_appsdir/%name
-%_kde_appsdir/konqueror/servicemenus/*.desktop
 %_kde_iconsdir/*/*/*/*
 %_kde_libdir/kde4/*
 %_kde_datadir/applications/kde4/*.desktop
 %_kde_datadir/kde4/services/*.desktop
+%_kde_datadir/kde4/services/ServiceMenus/*.desktop
