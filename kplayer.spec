@@ -1,11 +1,11 @@
 Summary:	MPlayer frontend for KDE
 Name:		kplayer
-Version:	0.7.1
-Release:	%mkrel 1
+Version:	0.7.2
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://kplayer.sourceforge.net/
-Source:		http://fr2.rpmfind.net/linux/KDE/stable/%name/%version/src/%name-%version.tar.bz2
+Source:		http://fr2.rpmfind.net/linux/KDE/stable/%name/%version/src/%name-%version.tar.xz
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
