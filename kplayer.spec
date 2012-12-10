@@ -68,3 +68,57 @@ rm -rf %{buildroot}
 %_kde_datadir/applications/kde4/*.desktop
 %_kde_datadir/kde4/services/*.desktop
 %_kde_datadir/kde4/services/ServiceMenus/*.desktop
+
+
+%changelog
+* Fri Apr 27 2012 Crispin Boylan <crisb@mandriva.org> 0.7.2-1
++ Revision: 793946
+- New release
+
+* Sat Jun 11 2011 Funda Wang <fwang@mandriva.org> 0.7.1-1
++ Revision: 684279
+- new version 0.7.1
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - the mass rebuild of 2010.1 packages
+
+* Fri Jun 04 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.7-6mdv2010.1
++ Revision: 547060
+- Fix crash on Exit
+
+* Tue Mar 23 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.7-5mdv2010.1
++ Revision: 526907
+- fix .desktop file
+- remove '< 2009.0' parts
+- clean spec
+
+* Fri Sep 11 2009 Thierry Vignaud <tv@mandriva.org> 0.7-4mdv2010.0
++ Revision: 438164
+- rebuild
+
+* Thu Feb 12 2009 Funda Wang <fwang@mandriva.org> 0.7-3mdv2009.1
++ Revision: 339642
+- fix out of source build
+- fix doc dir
+- fix linkage
+
+* Mon Jul 14 2008 Funda Wang <fwang@mandriva.org> 0.7-2mdv2009.0
++ Revision: 234424
+- fix perm
+
+* Sun Jun 29 2008 Funda Wang <fwang@mandriva.org> 0.7-1mdv2009.0
++ Revision: 229986
+- add file list
+- move doc files into correct dir
+- it does not like build subdir
+- Import source and spec
+- Created package structure for kde4-kplayer.
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Fix provides // Obsoletes
+    - Rename spec file and fix spec file
+    - Use new name policy
+
