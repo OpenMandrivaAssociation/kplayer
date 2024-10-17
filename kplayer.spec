@@ -4,7 +4,7 @@ Version:	0.7.2
 Release:	2
 License:	GPLv2+
 Group:		Video
-Url:		http://kplayer.sourceforge.net/
+Url:		https://kplayer.sourceforge.net/
 Source:		http://fr2.rpmfind.net/linux/KDE/stable/%name/%version/src/%name-%version.tar.xz
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
