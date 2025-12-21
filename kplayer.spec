@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:		Video
 Url:		https://kplayer.sourceforge.net/
 Source:		http://fr2.rpmfind.net/linux/KDE/stable/%name/%version/src/%name-%version.tar.xz
+BuildRequires:	make
 BuildRequires:	kdelibs4-devel
 Requires:	mplayer
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
